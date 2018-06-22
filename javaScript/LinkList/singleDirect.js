@@ -63,7 +63,8 @@ function LinkedList() {
     this.remove = (val) => {
         let temp = head;
         let prev = null;
-        while (temp.next !== null){
+        
+        while (temp != null){
             
             temp = temp.next;
         }
@@ -72,8 +73,16 @@ function LinkedList() {
     this.removeAt = (pos) => {
         if(pos >= 0 && pos <= length) {
             if(pos === 0) {
+                head = head.next;
+            } else {
                 let temp = head;
-                
+                let prev = null
+                while(pos !== 0 ){
+                    prev = temp;
+                    pos--;
+                    temp = temp.next;
+                }
+                prev.next = temp.next;
             }
         } else {
             throw new Error('pos wrong')

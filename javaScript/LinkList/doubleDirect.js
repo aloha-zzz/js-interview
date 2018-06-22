@@ -24,10 +24,22 @@ function LinkList(){
     }
 
     this.insert = (pos, val) => {
-        
+        if(pos >= 0 && pos <= length) {
+            if( length / 2 > pos) {
+                while (pos !== 0) {
+                    
+                }
+            }
+        } else {
+            throw new Error('pos wrong')
+        }
     }
     this.removeAt = (pos) => {
-        
+        if(pos >= 0 && pos <= length) {
+
+        } else {
+            throw new Error('pos wrong')
+        }
     }
     this.showHead = () => {
         return head;
