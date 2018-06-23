@@ -25,22 +25,54 @@ function LinkList(){
 
     this.insert = (pos, val) => {
         if(pos >= 0 && pos <= length) {
-            if( length / 2 > pos) {
-                while (pos !== 0) {
-                    
-                }
+            let temp = head;
+            while(pos !== 0){
+                pos--;
+                temp = temp.next;
             }
+            let before = temp.prev;
+            let newNode = new Node(val);
+            before.next = newNode;
+            newNode.prev = before;
+            temp.prev = newNode;
+            newNode.next = temp;
+            length++;
         } else {
             throw new Error('pos wrong')
         }
     }
     this.removeAt = (pos) => {
-        if(pos >= 0 && pos <= length) {
+        if(pos >= 0 && pos <= length - 1) {
+            let temp = head;
+            let before = null;
+            let after = null;
+            if(pos === 0) {
+                head = head.next;
+                if(length === 1) {
+                    tail = null
+                } else {
+                    head.prev = null
+                }
+            } else if (pos === length - 1) {
+                tail = tail.prev;
+                tail.next = null
+            } else {
+                while(pos !== 0) {
+                    pos --;
+                    temp = temp.next;
+                }
+                before = temp.prev
+                after = temp.next;
+                before.next = after;
+                after.prev = before;
+            }
 
+    
         } else {
             throw new Error('pos wrong')
         }
     }
+
     this.showHead = () => {
         return head;
     }
