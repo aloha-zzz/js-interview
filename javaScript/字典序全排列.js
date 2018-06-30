@@ -1,20 +1,7 @@
-// 输入一个字符串,按字典序打印出该字符串中字符的所有排列。
-// 例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
-function Permutation(str) {
-    if(str === ''){
-        return [];
-    }
-    let arr = str.split('');
-    arr.sort();
-    let ans = []
-    PermutationArr(arr, ans);
-    return ans;
-}
-
-function PermutationArr(arr, ans) {
+function Permutation(arr){
     arr.sort();
     while(1) {
-        ans.push(arr.join(''))
+        console.log(arr);
         let len = arr.length;
         let index = -1;
         let j = null
@@ -33,6 +20,7 @@ function PermutationArr(arr, ans) {
         }
         swap(arr, j, index);
         Reverse(arr, index + 1)
+
     }
 }
 
