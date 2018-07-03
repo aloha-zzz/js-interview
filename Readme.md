@@ -12,3 +12,4 @@
 - 7.1   node.js
 - 7.2   node.js  关键： 异步回调以及捕获异常 多进程实现以及守护进程 以及一些常用API fs url path http process
                        node.js 又有许多第三包支持。 底层还是C++, 有些模块也是C++实现的， 所以出现问题要重启，否则会出现C的 内存泄漏
+- 7.3 offer blog 备案
