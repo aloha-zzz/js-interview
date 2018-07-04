@@ -22,5 +22,4 @@ function mergeSort(arr){
     let right = arr.slice(mid);
     return merge(mergeSort(left), mergeSort(right))
 }
-
 console.log(mergeSort(arr))
