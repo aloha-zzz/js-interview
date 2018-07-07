@@ -7,5 +7,11 @@ function GetNumberOfK(data, k)
         return 0;
     }
 
-    
+    let num1 = data.indexOf(k);
+    if(num1 === -1) {
+        return 0
+    }
+    let num2 = data.lastIndexOf(k);
+    return num2 - num1 + 1;
 }
+
