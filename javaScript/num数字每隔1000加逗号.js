@@ -24,10 +24,16 @@ function comma(num) {
 // 正则表达式
 
 
-function Reg(str){
-    let ans = str.replace(/(\d{1,3})(?=(\d{3})+$)/g, function ($1) {
-        return $1 = $1 + ','
-    })
-    return ans
+function commafy(num) {
+    return num && num
+        .toString()
+        .replace(/-?(\d)(?=(\d{3})+\.)/g, function ($1) { // 先行断言
+            return $1 + ',';
+        });
 }
- 
+
+console.log(commafy(1200000123123.223))
+console.log(commafy(-12000001231231.223))
+console.log(commafy(-31.223))
+
+
