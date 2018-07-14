@@ -19,7 +19,7 @@ function Permutation(arr){
             }
         }
         swap(arr, j, index);
-        Reverse(arr, index + 1)
+        Reverse(arr, index + 1) // 
 
     }
 }

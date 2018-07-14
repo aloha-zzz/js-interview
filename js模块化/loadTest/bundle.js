@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/dist";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 1);
@@ -77,16 +77,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.incCounter = incCounter;
+// var counter = 3;
+// function incCounter() {
+// 	counter++;
+// }
+
+// module.exports = {
+//   counter: counter,
+//   incCounter: incCounter,
+// };
 var counter = exports.counter = 3;
 function incCounter() {
   exports.counter = counter += 1;
 }
-
-// import num from './index';
-
-// setInterval(() => {
-//     console.log(num);
-// }, 3000);
 
 /***/ }),
 /* 1 */
@@ -95,17 +98,21 @@ function incCounter() {
 "use strict";
 
 
-var _a = __webpack_require__(0);
+var _lib = __webpack_require__(0);
 
-console.log(_a.counter); // 3
-(0, _a.incCounter)();
-console.log(_a.counter);
+console.log(_lib.counter); // 3
+// var counter = require('./lib').counter;
+// var incCounter = require('./lib').incCounter;
 
-// let num = 0;
-// setTimeout(() => {
-//     num++
-// }, 1000)
-// export default num;
+// import obj from './lib.js'
+// // console.log(require)
+// console.log(obj.counter);  // 3
+// // incCounter();
+// console.log(obj.incCounter())
+// console.log(obj.counter); // 3
+
+(0, _lib.incCounter)();
+console.log(_lib.counter); // 4
 
 /***/ })
 /******/ ]);
