@@ -6,3 +6,5 @@ http.createServer((req, res) => {
 }).listen(3000, () => {
     console.log('server run')
 })
+
+ // 核心是koa-compose dispatch

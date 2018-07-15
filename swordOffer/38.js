@@ -27,8 +27,9 @@ function TreeDepth(pRoot){
     arr.push(pRoot);
     let depth = 0;
     while(arr.length != 0) {
-        let size = arr.length;
-        depth ++;
+        let size = arr.length; 
+        width = size;// 二叉树宽度
+        depth ++; // 二叉树高度
         for(let i = 0; i < size; i++){
             let node = arr.shift();
             if(node.left) {
