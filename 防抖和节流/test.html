@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id='input' type="text" />
+</body>
+<script>
+    function output(e) {
+        console.log(this)
+        console.log(e.target.value)
+    }
+    // document.getElementById('input').oninput = debounce(output, 500);
+    document.getElementById('input').oninput = throttle(output, 1000);
+    // document.getElementById('input').oninput = output
+
+    /**
+     *  防抖 debounce
+     * 1. new - prev 最后一次不会执行
+     * 2. 定时器 第一次不会执行
+     */
+    function debounce(func, wait) {
+        let timeout;
+        return function (...args) {
+            let context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                func.apply(context, args)
+            }, wait)
+        }
+    }
+/**
+ * 简单版本 
+ */
+    function Easythrottle(func, wait) {
+        var context, args;
+        var previous = 0;
+
+        return function() {
+            var now = +new Date();
+            context = this;
+            args = arguments;
+            if (now - previous > wait) {
+                func.apply(context, args);
+                previous = now;
+            }
+        }
+    }
+
+    function throttle(func, wait) {
+        let prev = 0;
+        let timeout;
+
+        let throttled = function(...args) {
+            let now = new Date().getTime();
+            let remain = wait - (now - prev);
+            let context = this;
+            if( remain <= 0 || remain > wait) {
+                if(timeout){
+                    clearTimeout(timeout);
+                    timeout = null;
+                }
+                prev = now;
+                func.apply(context, args)
+            } else if(!timeout) {
+                timeout = setTimeout(() => {
+                    previous = new Date().getTime();
+                    timeout = null;
+                    func.apply(context, args)
+                }, remain)
+            }
+        }
+        return throttled
+    }
+
+
+</script>
+
+</html>

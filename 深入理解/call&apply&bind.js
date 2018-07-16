@@ -31,11 +31,20 @@ Function.prototype.myApply = function (context, arr) {
 Function.prototype.myBind = function (context, ...bindArgs) {
     context = context || window;
     let _self = this;
-    return function(...args) {
-        let allArgs = bindArgs.concat(args);
-        return _self.apply(context, allArgs)
+
+    return function F(...args) {
+        if(this instanceof F) { // 判断是不是构造函数
+            return new self(...args, ...bindArgs)
+        }
+        return _self.apply(context, args.concat(bindArgs))
     }
 }
+/**
+ * 当bind 返回的函数作为构造函数是， bind指定的this 失效，但是传入的值有效
+ */
+
+
+
 let obj = {
     val: 'obj'
 }
