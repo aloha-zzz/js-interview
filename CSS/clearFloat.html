@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer {
+            background-color: aqua;
+            /* overflow: auto */
+        }
+        .float{
+            height: 200px;
+            float: left;
+            /* background-color: greenyellow; */
+        }
+        .clearfix:after{
+            clear:both;
+            content:'.';
+            display:block;
+            width: 0;
+            height: 0;
+            visibility:hidden;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer clearfix">  <!--给浮动元素容器加-->
+        <div class="float ">123</div>
+    </div>
+</body>
+</html>
