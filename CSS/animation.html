@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes mymove {
+        from {
+            top: 0px;
+        }
+        to {
+            top: 200px;
+        }
+    }
+    .css {
+        position:absolute;
+        animation: mymove 5s infinite;
+        height: 200px;
+        background-color: aquamarine;
+        width:300px;
+    }
+
+    .js {
+        position:absolute;
+        left: 300px;
+        height: 200px;
+        background-color: lawngreen;
+        width:300px;
+    }
+</style>
+
+<body>
+    <div class="css"></div>
+    <div id='js' class='js'></div>
+</body>
+<script>
+    const ele = document.getElementById('js');
+    let flag = true;
+    let topDistance = 0;
+    // setInterval(() => {
+    //     if(topDistance === 0) {
+    //         flag = true
+    //     } else if(topDistance === 100){
+    //         flag = false
+    //     }
+    //     ele.style.top = flag ? `${++topDistance}px`:`${--topDistance}px`;
+    // }, 1000/60)
+    function render(){
+        if(topDistance === 0) {
+            flag = true
+        } else if(topDistance === 100){
+            flag = false
+        }
+        ele.style.top = flag ? `${++topDistance}px`:`${--topDistance}px`;
+        requestAnimationFrame(render)
+    }
+    render()
+
+
+</script>
+
+</html>
