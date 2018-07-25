@@ -25,15 +25,16 @@ function comma(num) {
 
 
 function commafy(num) {
-    return num && num
-        .toString()
-        .replace(/-?(\d)(?=(\d{3})+\.)/g, function ($1) { // 先行断言
-            return $1 + ',';
-        });
+    const str = num.toString()
+    const reg = /(?=(\B)(\d{3})+$)/g // \B匹配非次边界
+    return str.replace(reg, function(match){
+        
+        return match + ','
+    })
 }
+console.log(commafy(12345))
+console.log(commafy(-120000023123))
+console.log(commafy(1200000123123))
 
-console.log(commafy(1200000123123.223))
-console.log(commafy(-12000001231231.223))
-console.log(commafy(-31.223))
 
 
