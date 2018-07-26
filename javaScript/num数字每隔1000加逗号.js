@@ -24,11 +24,19 @@ function comma(num) {
 // 正则表达式
 
 
-function commafy(num) {
-    const str = num.toString()
-    const reg = /(?=(\B)(\d{3})+$)/g // \B匹配非次边界
-    return str.replace(reg, function(match){
+// function commafy(num) {
+//     const str = num.toString()
+//     const reg = /(?=(\B)(\d{3})+$)/g // \B匹配非次边界
+//     return str.replace(reg, function(match){
         
+//         return match + ','
+//     })
+// }
+
+function commafy(num){
+    let str = num.toString();
+    const reg = /(?=(\B)(\d{3})+$)/g;
+    return str.replace(reg, function(match) {
         return match + ','
     })
 }
