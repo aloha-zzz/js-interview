@@ -93,11 +93,13 @@ _Promise.prototype.then = function (onresolve, onreject) {
     return newPromise
 }
 
-_Promise.prototype.finally = function (onresolve,onreject) {
-	onresolve = typeof onresolve === 'function' ? onresolve : function(val){return val};
-	onreject = typeof onreject === 'function' ? onreject : function (err){throw err};
-	return _Promise.prototype.then(onresolve,onreject)
-}
+_Promise.prototype.finally = function (callback) {
+    let P = this.constructor;
+    return this.then(
+      value  => P.resolve(callback()).then(() => value),
+      reason => P.resolve(callback()).then(() => { throw reason })
+    );
+  };
 
 _Promise.resolve = function (data) {
 	return new _Promise(resolve=>resolve(data))
