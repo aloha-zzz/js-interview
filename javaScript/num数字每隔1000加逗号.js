@@ -46,3 +46,10 @@ console.log(commafy(1200000123123))
 
 
 
+
+
+function test(num){
+    let str = num.toString();
+    const reg = /?=(\B)(\d{3})+$/g
+
+}
