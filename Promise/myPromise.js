@@ -5,8 +5,8 @@ function _Promise(execute) {
     this.rejectedCb = [];
 
     let _self = this;
-    function resolve (data) {
-        if(_self.status === 'pending'){
+    function resolve(data) {
+        if (_self.status === 'pending') {
             this.data = data;
             this.status = 'resolved'
             this.resolveCb.forEach(func => {
@@ -15,8 +15,8 @@ function _Promise(execute) {
         }
     }
 
-    function reject (data) {
-        if(_self.status === 'pending'){
+    function reject(data) {
+        if (_self.status === 'pending') {
             this.data = data;
             this.status = 'rejected'
             this.rejectedCb.forEach(func => {
@@ -28,26 +28,26 @@ function _Promise(execute) {
     try {
         execute(resolve, reject)
     } catch (e) {
-        reject (e)
+        reject(e)
     }
 }
 
 _Promise.prototype.then = function (onresolve, onreject) {
     let that = this;
-    onresolve = typeof onresolve === 'function' ? onresolve : function(val){return val};
-	onreject = typeof onreject === 'function' ? onreject : function (err){throw err};
+    onresolve = typeof onresolve === 'function' ? onresolve : function (val) { return val };
+    onreject = typeof onreject === 'function' ? onreject : function (err) { throw err };
 
     let newPromise;
     if (that.status === 'resolved') {
         newPromise = new _Promise((resolve, reject) => {
-            setTimeout(()=> {
+            setTimeout(() => {
                 try {
                     let temp = onresolve(that.data);
-                    if(temp instanceof _Promise) {
+                    if (temp instanceof _Promise) {
                         x.then(resolve, reject)
                     }
                     resolve(x)
-                } catch(e){
+                } catch (e) {
                     reject(e)
                 }
             })
@@ -55,13 +55,13 @@ _Promise.prototype.then = function (onresolve, onreject) {
     }
     if (that.status === 'rejected') {
         newPromise = new _Promise((resolve, reject) => {
-            setTimeout(()=> {
+            setTimeout(() => {
                 try {
                     let temp = onreject(that.data);
-                    if(temp instanceof _Promise) {
+                    if (temp instanceof _Promise) {
                         x.then(resolve, reject)
                     }
-                } catch(e){
+                } catch (e) {
                     reject(e)
                 }
             })
@@ -71,21 +71,21 @@ _Promise.prototype.then = function (onresolve, onreject) {
         that.resolveCb.push(() => {
             try {
                 let temp = onresolve(that.data);
-                    if(temp instanceof _Promise) {
-                        x.then(resolve, reject)
-                    }
-                    resolve(x)
-                } catch(e){
-                    reject(e)
+                if (temp instanceof _Promise) {
+                    x.then(resolve, reject)
                 }
+                resolve(x)
+            } catch (e) {
+                reject(e)
+            }
         })
         that.rejectedCb.push(() => {
             try {
                 let temp = onreject(that.data);
-                if(temp instanceof _Promise) {
+                if (temp instanceof _Promise) {
                     x.then(resolve, reject)
                 }
-            } catch(e){
+            } catch (e) {
                 reject(e)
             }
         })
@@ -96,17 +96,17 @@ _Promise.prototype.then = function (onresolve, onreject) {
 _Promise.prototype.finally = function (callback) {
     let P = this.constructor;
     return this.then(
-      value  => P.resolve(callback()).then(() => value),
-      reason => P.resolve(callback()).then(() => { throw reason })
+        value => P.resolve(callback()).then(() => value),
+        reason => P.resolve(callback()).then(() => { throw reason })
     );
-  };
+};
 
 _Promise.resolve = function (data) {
-	return new _Promise(resolve=>resolve(data))
+    return new _Promise(resolve => resolve(data))
 }
 
 _Promise.reject = function (reason) {
-	return new _Promise(null,reject=>reject(reason))
+    return new _Promise(null, reject => reject(reason))
 }
 
 

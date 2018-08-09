@@ -9,7 +9,7 @@ Function.prototype.call2 = function(context, ...args) {
     context = context || window;
     let fn = Symbol()
     context[fn] = this; // 防止被覆盖
-    var result =  context[fn](...args)
+    var result =  context[fn](...args) // 意思是在context的内部添加方法来执行
     Reflect.deleteProperty(context, fn)
     return result;
 }
@@ -34,7 +34,7 @@ Function.prototype.myBind = function (context, ...bindArgs) {
 
     return function F(...args) {
         if(this instanceof F) { // 判断是不是构造函数
-            return new self(...args, ...bindArgs)
+            return new F(...args, ...bindArgs)
         }
         return _self.apply(context, args.concat(bindArgs))
     }
