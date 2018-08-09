@@ -1,0 +1,5 @@
+- 观察者模式  EventEmitter
+- 单例模式
+- 外观模式  (jquery 对选择器进行封装)
+- 策略模式 if else 用map替换
+- 装饰者模式
