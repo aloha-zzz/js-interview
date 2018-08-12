@@ -4,7 +4,7 @@ const add = (a, b) => {
     let num2 = b.toString().split('');
     let ans = [];
 
-    while(num1.length || num2.length){
+    while (num1.length || num2.length) {
         let temp = (Number(num1.pop()) || 0) + (Number(num2.pop()) || 0) + (isAddOne ? 1 : 0);
         if (temp >= 10) {
             ans.unshift(temp - 10);
@@ -17,4 +17,4 @@ const add = (a, b) => {
 
 }
 
-add(12512312,999999);
+add(12512312, 999999);

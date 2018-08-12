@@ -5,7 +5,7 @@ function Node(x) {
     this.val = x;
     this.left = null;
     this.right = null;
-} 
+}
 var a = new Node(12)
 a.left = new Node(8);
 a.left.left = new Node(4)
@@ -15,26 +15,25 @@ a.right.left = new Node(15);
 a.right.right = new Node(17)
 
 
-function Convert(pRootOfTree)
-{
-    if(pRootOfTree == null) {
+function Convert(pRootOfTree) {
+    if (pRootOfTree == null) {
         return null;
     }
-    if(pRootOfTree.left == null && pRootOfTree.right == null) {
+    if (pRootOfTree.left == null && pRootOfTree.right == null) {
         return pRootOfTree;
     }
-    
+
     let left = Convert(pRootOfTree.left);
-    if(left) {
+    if (left) {
         let p = left;
-        while(p.right != null) {
+        while (p.right != null) {
             p = p.right;
         }
         p.right = pRootOfTree;
         pRootOfTree.left = p;
     }
     let right = Convert(pRootOfTree.right);
-    if(right){
+    if (right) {
         pRootOfTree.right = right;
         right.left = pRootOfTree;
     }

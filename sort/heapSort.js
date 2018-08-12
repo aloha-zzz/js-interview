@@ -8,6 +8,7 @@ function heapSort(arr){
         heapify(arr, i, heapSize);
     } 
 
+    // 排序
     for(let j = heapSize - 1; j >= 1; j--){
         swap(arr, 0, j);
         heapify(arr, 0, --heapSize)
