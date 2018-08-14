@@ -10,11 +10,11 @@ let path = [
 console.log(path)
 // 从0 到其他点的距离；
 
-function dijkstra(path, index) {
+function dijkstra(path, index) { // index 到其他点的距离
     var m = path.length;
     var n = path[0].length;
 
-    if (m === n && index < n) {
+    if (m === n && index < n) { // 
         var dis = [];
         var i;
         for (i = 0; i < n; i++) {
@@ -35,13 +35,16 @@ function dijkstra(path, index) {
                     min = dis[j];
                     minIndex = j;
                 }
-            }
-            flag[minIndex] = true;//标识index到此顶点的距离已经确认
+            } 
+            flag[minIndex] = true;// 标识index到此顶点的距离已经确认
+            // 找dis 最小的值且为false的
+
+
             for (var k = 0; k < n; k++) {
                 //判断minIndex到k之间有无道路
                 if (path[minIndex][k] < Infinity) {
                     //更新distance
-                    if (dis[k] > dis[minIndex] + path[minIndex][k]) {
+                    if (dis[k] > dis[minIndex] + path[minIndex][k]) { // 更新k的值
                         dis[k] = dis[minIndex] + path[minIndex][k];
                     }
                 }
