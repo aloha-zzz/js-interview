@@ -8,7 +8,6 @@ function say(time) {
 
 let arr = [4000, 200, 4000];
 
-
 (function next(i, arr) {
     if(i === arr.length){
         return;

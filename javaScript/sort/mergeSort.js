@@ -12,7 +12,6 @@ function merge(left, right){
     return ans.concat(left, right)
 }
 
-
 function mergeSort(arr){
     if(arr.length === 1 || arr.length === 0 ) {
         return arr;

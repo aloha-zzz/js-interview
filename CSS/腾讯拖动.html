@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0
+        } */
+        .box {
+            width: 600px;
+            height: 600px;
+            background-color: grey;
+            position: relative;
+        }
+
+        .square {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="square" id="square">
+        </div>
+    </div>
+</body>
+<script>    
+
+    let square = document.getElementById('square');
+    square.onmousedown = function (e) {
+        let property = square.getBoundingClientRect();
+        console.log(property);
+        console.log(square.offsetLeft)
+        console.log(square.offsetTop)
+
+        let clickX = e.clientX - property.left;
+        let clickY = e.clientY - property.top;
+
+        document.onmousemove = function(e) {
+            let left = e.clientX - clickX;
+            let top = e.clientY - clickY;
+            if(left < 0) {
+                left = 0;
+            }
+            if(left > 500) {
+                left = 500
+            }
+            if(top < 0) {
+                top = 0;
+            }
+            if(top > 500) {
+                top = 500
+            }
+            console.log(left , top)
+            square.style.left = left + 'px';
+            square.style.top = top + 'px'
+        }
+    }
+    document.onmouseup = function () {
+        document.onmousemove = null
+    }
+
+   
+</script>
+
+</html>

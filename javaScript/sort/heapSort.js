@@ -7,7 +7,6 @@ function heapSort(arr) {
     for(let i = Math.floor(heapSize / 2) - 1; i >= 0; i--){
         heapify(arr, i, heapSize)
     }
-
     for(let i = heapSize - 1; i > 0; i--){
         swap(arr, i, 0);
         heapify(arr, 0, --heapSize)
@@ -29,9 +28,7 @@ function heapify(arr, index, len){ // 建堆
         swap(arr, index, max);
         heapify(arr, max, len)
     }
-
 }
-
 
 function swap(arr, a, b) {
     let temp = arr[a];
@@ -39,4 +36,3 @@ function swap(arr, a, b) {
     arr[b] = temp;
 }
 heapSort(arr);
-console.log(arr)

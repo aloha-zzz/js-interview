@@ -2,8 +2,6 @@ function aLogger(content) {
     console.log(content);
 }
 
-
-
 function bLogger(content) {
     console.log(content);
 }
@@ -24,8 +22,7 @@ function bRecord() {
 }
 
 function Func(func) {
-    
-    return function() {
+    return function () {
         let content = dosomething();
         func(content)
     }

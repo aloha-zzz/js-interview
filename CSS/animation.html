@@ -16,20 +16,21 @@
             top: 200px;
         }
     }
+
     .css {
-        position:absolute;
+        position: absolute;
         animation: mymove 5s infinite;
         height: 200px;
         background-color: aquamarine;
-        width:300px;
+        width: 300px;
     }
 
     .js {
-        position:absolute;
+        position: absolute;
         left: 300px;
         height: 200px;
         background-color: lawngreen;
-        width:300px;
+        width: 300px;
     }
 </style>
 
@@ -44,23 +45,22 @@
     // setInterval(() => {
     //     if(topDistance === 0) {
     //         flag = true
-    //     } else if(topDistance === 100){
+    //     } 
+    //     else if(topDistance === 100){
     //         flag = false
     //     }
     //     ele.style.top = flag ? `${++topDistance}px`:`${--topDistance}px`;
     // }, 1000/60)
-    function render(){
-        if(topDistance === 0) {
+    function render() {
+        if (topDistance === 0) {
             flag = true
-        } else if(topDistance === 100){
+        } else if (topDistance === 100) {
             flag = false
         }
-        ele.style.top = flag ? `${++topDistance}px`:`${--topDistance}px`;
+        ele.style.top = flag ? `${++topDistance}px` : `${--topDistance}px`;
         requestAnimationFrame(render)
     }
     render()
-
-
 </script>
 
 </html>

@@ -1,4 +1,3 @@
-
 function hello(name) {
     name += 'hello';
     console.log('hello' + name);
@@ -10,8 +9,6 @@ function good(name) {
 }
 good('vicky')
 good('hello')
-
-
 
 function HOC(func) {
     return function (name) {

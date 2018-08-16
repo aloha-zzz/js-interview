@@ -10,7 +10,6 @@ function bubbleSort(arr) {
     }
 }
 
-
 function swap(arr, i, j) {
     let temp = arr[i];
     arr[i] = arr[j];

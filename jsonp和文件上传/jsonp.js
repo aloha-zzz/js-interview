@@ -44,3 +44,12 @@ document.getElementById('upload').onclick = function() {
     // xhr.setRequestHeader('Content-Type','multipart/form-data')
     xhr.send(fd)
 }
+
+document.getElementById('send').onclick = function () {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState === 4 ) {
+            console.log(xhr.responseText)
+        }
+    }
+}
