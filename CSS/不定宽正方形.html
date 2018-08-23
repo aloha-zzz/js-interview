@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
         }
+
         .square {
             margin-top: 100px;
             margin-left: 100px;
@@ -18,6 +19,7 @@
             background-color: #aabbee;
             border: 1px solid red;
         }
+
         .square::after {
             display: block;
             padding-bottom: 100%;
@@ -27,8 +29,18 @@
 </head>
 
 <body>
+    <a id='link' target="_blank" href="http://zhouhaoxiang.top/">百度</a>
     <div class="square">不定宽 正方形</div>
 
 </body>
+<script>
+    var link = document.getElementById('link');
+    link.onclick = function () {
+        setInterval(() => {
+            document.getElementById('link').setAttribute('href', 'http://www.baidu.com')
+        }, 2000)
+    }
+
+</script>
 
 </html>

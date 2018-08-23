@@ -17,7 +17,7 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 
-Permutation([1, 2, 3], 0)
+Permutation([1, 2, 3], 1)
 // 但不是字典序的 
 
 

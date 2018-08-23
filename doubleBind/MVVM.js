@@ -9,25 +9,25 @@
  *  Compile 遍历node   执行node2fragment 对fragment进行compile 然后添加到对应的
  *  Watcher。  Compile 分别用来初始化 View 和 更新View
  *  
- */ 
+ */
 
 
 function observe(value, cb) {
-    Object.keys(value).forEach((key) => defineReactive(value, key, value[key] , cb))
+    Object.keys(value).forEach((key) => defineReactive(value, key, value[key], cb))
 }
 
-function defineReactive (obj, key, val) {
+function defineReactive(obj, key, val) {
     var dep = new Dep();
     observe(val)
     Object.defineProperty(obj, key, {
         enumerable: true,
         configurable: true,
-        get: ()=>{
+        get: () => {
             /*....依赖收集等....*/
             /*Github:https://github.com/answershuto*/
             return val
         },
-        set:newVal=> {
+        set: newVal => {
             if (val === newVal) return;
             val = newVal;
             console.log('监听到change')
@@ -41,11 +41,11 @@ function Dep() {
     this.subs = [];
 }
 Dep.prototype = {
-    addSub: function(sub) {
+    addSub: function (sub) {
         this.subs.push(sub);
     },
-    notify: function() {
-        this.subs.forEach(function(sub) {
+    notify: function () {
+        this.subs.forEach(function (sub) {
             sub.update();
         });
     }
@@ -64,7 +64,7 @@ let app = new Vue({
         text: 'text',
         text2: 'text2'
     },
-    render(){
+    render() {
         console.log("render");
     }
 })
