@@ -82,7 +82,7 @@ function searchTree() {
         let ans = -1;
         function getMin(node){
             if(node === null) {
-                return ;
+                return;
             } else {
                 ans = node.val;
                 getMin(node.left)

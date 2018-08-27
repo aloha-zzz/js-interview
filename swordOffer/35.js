@@ -20,7 +20,7 @@ function merge(left, right){
     while(left.length && right.length){
         if(left[left.length - 1] > right[right.length - 1]){
             ans.unshift(left.pop())
-            num += right.length
+            num += right.length // 逆序对的数量
         } else {
             ans.unshift(right.pop())
         }
@@ -39,3 +39,5 @@ function split(arr){
     return merge(split(left), split(right))
 }
 
+InversePairs([1,2,3,4,-1,6,7,0])
+console.log(num)

@@ -7,30 +7,11 @@
  * {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}，
  *  {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。
  */ 
+function maxInWindows(num, size)
+{
+    // write code here
 
-function maxInWindows(num, size){
-    if(!num || num.length === 0){
-        return null;
-    }
-    var max = [];
-    if(num.length >= size && size >= 1){
-        var index = [];
 
-        for(var i = 0; i < size; ++i){
-            while(index.length > 0 && num[i] >= num[index[index.length - 1]])
-                index.pop();
-            index.push(i);
-        }
 
-        for(var i = size; i < num.length; ++i){
-            max.push(num[index[0]]);
-            while(index.length > 0 && num[i] >= num[index[index.length - 1]])
-                index.pop();
-            if(index.length > 0 && index[0] <= i - size)
-                index.shift();
-            index.push(i);
-        }
-        max.push(num[index[0]]);
-    }
-    return max;
+    //  队列里存下标 
 }

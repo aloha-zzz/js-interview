@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div num='0' id='dom'>
+        <ul num='1'>
+            <li num='1.1'>1.1</li>
+            <li num='1.2'>1.2</li>
+            <ul num='1.3'>
+                <li num='1.3.1'>1.3.1</li>
+                <li num='1.3.2'>1.3.2</li>
+                <li num='1.3.3'>1.3.3</li>
+            </ul>
+        </ul>
+        <ol num='2'>
+            <li num='2.1'>2.1</li>
+            <li num='2.2'>2.2</li>
+            <li num='2.3'>2.3</li>
+        </ol>
+    </div>
+</body>
+<script>
+    let dom = document.getElementById('dom');
+    let DFSArr = [];
+    let BFSArr = []
+    function DFS(node) {
+       
+        DFSArr.push(node.getAttribute('num'));
+        if(node.children) {
+            for(let i = 0; i < node.children.length; i++) {
+                DFS(node.children[i])
+            }
+        }
+    }
+
+    function BFS(node) {
+        let queue = [];
+        queue.push(node);
+        while(queue.length > 0) {
+            let top = queue.shift();
+            if(top.children) {
+                for(let i = 0; i < top.children.length; i++) {
+                    queue.push(top.children[i])
+                }
+            }
+            BFSArr.push(top.getAttribute('num'))
+        }
+    }
+
+    DFS(dom)
+    console.log(DFSArr)
+    console.log('--------------');
+    BFS(dom);
+    console.log(BFSArr)
+
+
+</script>
+</html>
