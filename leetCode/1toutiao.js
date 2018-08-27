@@ -23,21 +23,31 @@ for (let i = 0; i < Len; i++) {
     if (boolArr[i] === 'T') {
         continue;
     }
-    DFS(i)
-    if(flag) {
+    firstDFS(i)
+    if (flag) {
         count++;
     }
+
     flag = true
+}
+function firstDFS(index) {
+    let temp = person[index];
+    for (let i = 0; i < temp.length; i++) {
+        if (temp[i] === 0) break;
+        if (boolArr[temp[i] - 1] === 'T') {
+            flag = false
+            continue
+        }
+        DFS(temp[i] - 1)
+    }
 }
 
 function DFS(index) {
     let temp = person[index];
     boolArr[index] = 'T'
-
     for (let i = 0; i < temp.length; i++) {
         if (temp[i] === 0) break;
         if (boolArr[temp[i] - 1] === 'T') {
-            flag = false
             continue
         }
         DFS(temp[i] - 1)
