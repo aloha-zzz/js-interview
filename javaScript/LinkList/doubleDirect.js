@@ -1,4 +1,4 @@
-function LinkList(){
+function LinkList() {
     function Node(val) {
         this.val = val;
         this.prev = null;
@@ -10,7 +10,7 @@ function LinkList(){
 
 
     this.append = (val) => {
-        if(head === null) {
+        if (head === null) {
             let node = new Node(val)
             head = node;
             tail = node;
@@ -24,9 +24,9 @@ function LinkList(){
     }
 
     this.insert = (pos, val) => {
-        if(pos >= 0 && pos <= length) {
+        if (pos >= 0 && pos <= length) {
             let temp = head;
-            while(pos !== 0){
+            while (pos !== 0) {
                 pos--;
                 temp = temp.next;
             }
@@ -42,13 +42,13 @@ function LinkList(){
         }
     }
     this.removeAt = (pos) => {
-        if(pos >= 0 && pos <= length - 1) {
+        if (pos >= 0 && pos <= length - 1) {
             let temp = head;
             let before = null;
             let after = null;
-            if(pos === 0) {
+            if (pos === 0) {
                 head = head.next;
-                if(length === 1) {
+                if (length === 1) {
                     tail = null
                 } else {
                     head.prev = null
@@ -57,8 +57,8 @@ function LinkList(){
                 tail = tail.prev;
                 tail.next = null
             } else {
-                while(pos !== 0) {
-                    pos --;
+                while (pos !== 0) {
+                    pos--;
                     temp = temp.next;
                 }
                 before = temp.prev
@@ -67,7 +67,7 @@ function LinkList(){
                 after.prev = before;
             }
 
-    
+
         } else {
             throw new Error('pos wrong')
         }

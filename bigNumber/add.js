@@ -14,7 +14,6 @@ const add = (a, b) => {
         }
     }
     console.log(ans);
-
 }
 
 add(12512312, 999999);

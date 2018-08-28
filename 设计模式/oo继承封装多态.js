@@ -16,7 +16,6 @@ function MidStu(name, age) {
 function Pupil(name, age) {
     MidStu.call(this, name, age)
 
-
     //计算学费
     this.payFee = function (money) { // 重写
         window.alert("应缴" + money * 0.5);

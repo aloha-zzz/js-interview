@@ -1,4 +1,5 @@
 function permutate(str) {
+    debugger
     let ans = []
     if (str.length <= 1) {
         return str;
@@ -15,3 +16,5 @@ function permutate(str) {
     }
     return ans
 }
+
+console.log(permutate('abc'))

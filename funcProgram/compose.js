@@ -9,7 +9,7 @@ function compose(...func) {
     return function (...args) {
         let ans = func[0].apply(this, args);
         for (let i = 1; i < func.length; i++) {
-            ans = func[i].call(this, ans); // 这里要传入上一个的结果
+            ans = func[i].call(this, ans); // 这里要传入上一个的结果   reduce / reduceRight
         }
         return ans;
     }

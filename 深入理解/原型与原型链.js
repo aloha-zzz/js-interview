@@ -22,7 +22,7 @@ Parent.prototype.hi = function () {
     console.log(`hi ${this.name}`)
 }
 
-Parent.prototype.sayInfo() = function () {
+Parent.prototype.sayInfo = function () {
     console.log(`name: ${this.name}`)
     console.log(`sex: ${this.sex}`)
 }
