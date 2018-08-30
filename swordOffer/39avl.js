@@ -58,6 +58,8 @@
 // ------------------------------
 
 
+
+
 let isBalanced = true;
 function IsBalanced_Solution(pRoot) {
     // write code here
@@ -78,5 +80,5 @@ function getDepth(node) {
     if (Math.abs(left - right) > 1) {
         isBalanced = false
     }
-    return Math.max(left, right) + 1
+    return Math.max(left, right) + 1 // 返回高度
 }
