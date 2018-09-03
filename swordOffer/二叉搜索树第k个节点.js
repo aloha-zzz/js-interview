@@ -23,7 +23,6 @@ head.left.right = new Node(7)
 function KthNode(pRoot, k)
 {
     // write code here
-
     let index = 0;
     function midOut(node, k){
         if(node !== null) {

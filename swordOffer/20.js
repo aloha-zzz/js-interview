@@ -1,4 +1,5 @@
 // 定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。
+
 function Stack(){
     let arr = [];
     this.push = (node) => {
@@ -9,47 +10,36 @@ function Stack(){
     }
     this.size = () => arr.length;
     this.top = () => arr[arr.length - 1];
-
 }
 
 
-let a = new Stack();
-let b = new Stack()
+let a = new Stack();  // 2,5,3,6,1,7
+let b = new Stack();  // 2,2,2,2,1,1 O(1) 找最小值
+// 辅助栈
+
+
 
 function push(node)
 {
-    a.push(node)
-}
+    // write code here
+    a.push(node);
 
+    b.push(b.top() < node ? b.top() : node)
+}
 function pop()
 {
-    a.pop();
-}
 
+    a.pop();
+    b.pop();
+    // write code here
+}
 function top()
 {
     return a.top()
+    // write code here
 }
-
 function min()
 {
+    return b.top()
     // write code here
-    if(a.size() === 0){
-        return -1
-    }
-
-    let ans = a.top();
-    while(a.size() !== 0){
-        if(a.top() < ans){
-            ans = a.top()
-        }
-        b.push(a.pop()); 
-    }
-    while(b.size() !== 0){ // 恢复
-        a.push(b.pop())
-    }
-
-    return ans;
 }
-
-
