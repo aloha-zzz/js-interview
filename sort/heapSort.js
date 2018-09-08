@@ -6,13 +6,14 @@ function heapSort(arr){
     let heapSize = arr.length;
     for(let i = heapSize >> 1 ; i >= 0; i--) {// 先建堆
         heapify(arr, i, heapSize);
-    } 
-
+    }
     // 排序
+
     for(let j = heapSize - 1; j >= 1; j--){
         swap(arr, 0, j);
         heapify(arr, 0, --heapSize)
     }
+    
     console.log(arr)
 }
 

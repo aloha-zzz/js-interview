@@ -40,3 +40,22 @@ function swap(arr, i, j){
     arr[i] = arr[j];
     arr[j] = temp;
 }
+
+
+
+function quickSort(arr) {
+    return qSort(arr, 0, arr.length - 1);
+}   
+
+function qSort(arr, left, right) {
+    let index = partition(arr, left, right)
+}
+function partition(arr, left, right) {
+    let i = left + 1;
+    let j = right;
+    let pivot = arr[left];
+    while(i < j) {
+
+    }
+
+}

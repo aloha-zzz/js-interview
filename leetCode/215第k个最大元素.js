@@ -4,7 +4,12 @@ var findKthLargest = function(nums, k) {
 
 
 function part(arr, target, left, right) {
-    let temp = arr[0];
+    let temp = arr[left];
+    let i = left;
+    let r = right;
 
+    while(i < r) {
+        
+    }
     
 }
